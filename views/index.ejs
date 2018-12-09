@@ -1,0 +1,42 @@
+<% include partials/header %> 
+	<h3>LOADING FROM EJS. <%= name %> (Syntax to bind the data from file in ExpressJS) </h3>
+	<% if(errors) {
+		%>
+			//Display error messages from express-validator during form submission
+			<ul>
+				<% errors.forEach((error) => { 
+					%>
+						<li>
+							<%= error.msg %> 
+							<%= error.msg %>
+						</li>
+					<% 
+					}) 
+				%>
+			</ul>
+		<% }
+	%>
+	
+	//Submitting Form
+	<h1>Adding Users</h1>
+		<form method="POST" action="/users/add">
+			<label>First Name:</label> </br>
+			<input type="text" name="first_name"></br>
+			<label>Last Name:</label> </br>
+			<input type="text" name="last_name"></br>
+			<label>Email:</label> </br>
+			<input type="text" name="email"></br></br>
+			<input type="submit" value="submit">
+		</form>
+	<ul>
+		<% users.forEach((user) => { 
+			%>
+				<li>
+					<%= user.first_name %> 
+					<%= user.last_name %>
+				</li>
+			<% 
+			}) 
+		%>
+	</ul>
+<% include partials/footer %>
